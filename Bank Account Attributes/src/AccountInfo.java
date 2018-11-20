@@ -2,7 +2,7 @@ import java.text.NumberFormat;
 
 public class AccountInfo {
 	private String YourName; 
-	private String Balance;  
+	private double Balance;  
 	private double balance; 
 	private double limit; 
 	private double low; 
@@ -11,11 +11,12 @@ public class AccountInfo {
 		// constructs it 
 		setBalance(b); 
 		setYourName(n); 
-		//setLow(l,b); 
+		setLow(l,b); 
 	}
+
 	public AccountInfo(double b, String n) {
 		setBalance(b); 
-		//setLow(100.00,b);
+		setLow(100.00,b);
 		setYourName(n); 
 	}
 	
@@ -24,13 +25,13 @@ public class AccountInfo {
 	}
 	private void setBalance(double b) {
 		double money = b; 
-		balance = b; 
+		Balance = b; 
 		NumberFormat formatter = NumberFormat.getCurrencyInstance(); 
 		String moneyString = formatter.format(money); 
 		System.out.println(moneyString);
 	}
 	
-	public String getBalance() { 
+	public double getBalance() { 
 		return Balance; 
 	}
 	
@@ -55,10 +56,14 @@ public class AccountInfo {
 		public double low() {
 			return low;
 		} 
+		
+		public double getLow() { 
+			return low; 
+		}
 		 
 	public String toString() { 
 		return getYourName() + " has " + getBalance() + 
-				" and has a resitricition of a lowest balance of " + low() + 
+				" and has a resitricition of a lowest balance of " + getLow() + 
 				" which means you can withdraw a max of " + (balance - limit); 
 			
 	}
