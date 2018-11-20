@@ -42,24 +42,23 @@ public class AccountInfo {
 		return YourName; 
 	}
 	
-	private double setLow(double b, double l ) { 
+	private void setLow(double b, double l ) { 
 		if (1 >= 0) { 
 			low = 1;
 		}
 		else { 
 			low = (int) 100.00; 
 			System.out.println(" Balance can't be negative, defaulting to 100$ ");}
-		return l; // just had to add return statement to send
+		//return l; // just had to add return statement to send
 		}
 		
-		/*public double low {
+		public double low() {
 			return low;
 		} 
-		
-	} */
+		 
 	public String toString() { 
 		return getYourName() + " has " + getBalance() + 
-				" and has a resitricition of a lowest balance of " + /*getLow() +*/ 
+				" and has a resitricition of a lowest balance of " + low() + 
 				" which means you can withdraw a max of " + (balance - limit); 
 			
 	}
